@@ -6,6 +6,7 @@
  * {
  *   id: "RCAC-0001",
  *   especie: "Ballena jorobada",
+ *   tipo: "ballena", // Opcional: "ballena", "delfin" u "otro"
  *   nombreCientifico: "Megaptera novaeangliae",
  *   fecha: "2026-08-15",
  *   observador: "Nombre autorizado para publicación",
@@ -18,8 +19,9 @@
  */
 window.AVISTAMIENTOS = [
 {
- id: "RCAC-0001",
+id: "RCAC-0001",
 especie: "Ballena jorobada",
+tipo: "ballena", // Opcional: "ballena", "delfin" u "otro"
 nombreCientifico: "Megaptera novaeangliae",
 fecha: "2026-08-15",
 observador: "Nombre autorizado para publicación",

@@ -34,7 +34,7 @@
     attributionControl: true
   });
   map.attributionControl.setPrefix(false);
-  map.attributionControl.addAttribution('Mapa base: Natural Earth · dominio público');
+  map.attributionControl.addAttribution('Mapa base: Natural Earth y geoBoundaries · dominio público');
   map.fitBounds([[-19.5, -85], [-0.5, -68]], { padding: [12, 12] });
 
   // Malla geográfica dibujada localmente: no depende de servidores de teselas.
@@ -52,12 +52,50 @@
     })
     .then(geojson => {
       L.geoJSON(geojson, {
-        style: { color: '#093753', weight: 1.4, fillColor: '#f2eadf', fillOpacity: 1 }
+        style: { color: '#093753', weight: 1.6, fillColor: '#f2eadf', fillOpacity: 1 }
       }).addTo(map);
     })
     .catch(() => {
       const notice = document.getElementById('map-empty');
       notice.innerHTML = '<strong>No se pudo dibujar el mapa base</strong>Recarga la página para intentarlo nuevamente.';
+    });
+
+  const updateDepartmentLabels = () => {
+    mapElement.classList.toggle('show-departments', map.getZoom() >= 6);
+  };
+  map.on('zoomend', updateDepartmentLabels);
+
+  fetch('assets/data/peru-departamentos.geojson')
+    .then(response => {
+      if (!response.ok) throw new Error('No se pudieron cargar los departamentos');
+      return response.json();
+    })
+    .then(geojson => {
+      L.geoJSON(geojson, {
+        style: {
+          color: '#6f898d',
+          weight: 0.75,
+          opacity: 0.9,
+          fillColor: '#f2eadf',
+          fillOpacity: 0.94
+        },
+        onEachFeature: (feature, layer) => {
+          const name = feature.properties.name;
+          layer.bindTooltip(name, {
+            permanent: true,
+            direction: 'center',
+            className: 'department-label',
+            interactive: false,
+            opacity: 1
+          });
+          layer.on('mouseover', () => layer.setStyle({ color: '#093753', weight: 1.5, fillColor: '#e8e0d4' }));
+          layer.on('mouseout', () => layer.setStyle({ color: '#6f898d', weight: 0.75, fillColor: '#f2eadf' }));
+        }
+      }).addTo(map);
+      updateDepartmentLabels();
+    })
+    .catch(() => {
+      if (dataNotice) dataNotice.textContent = 'El contorno nacional está disponible, pero no se pudieron cargar los límites departamentales. Recarga la página para intentarlo nuevamente.';
     });
 
   const labelOptions = { permanent: true, direction: 'center', className: 'map-label', interactive: false };
@@ -91,6 +129,30 @@
   function speciesColor(species) {
     const index = Math.max(0, unique('especie').indexOf(species));
     return colors[index % colors.length];
+  }
+
+  const markerIcons = {
+    ballena: '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16c2-5 7-8 13-7 4 1 7 4 9 7l3-2c.5 3-.3 5-2 7-2 2-5 3-9 3l-2 4-1-4c-5 0-9-2-12-5l-4 1 3-4-3-2 4 1Z" fill="currentColor"/><circle cx="22" cy="13" r="1" fill="var(--marker-color)"/></svg>',
+    delfin: '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 23c5-2 6-7 10-11 3-3 7-5 11-4l4-3 1 5c2 2 3 4 2 7-3-2-6-2-9 0l-3 5-2-5c-4 3-8 6-14 6Z" fill="currentColor"/><path d="M12 11l-1-6c4 0 7 2 8 5M26 13l5 2-6 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="10" r=".9" fill="var(--marker-color)"/></svg>',
+    cetaceo: '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 15c-2-5 0-8 3-10-1 4 1 6 0 9M14 14c-4-4-7-3-9-1 4 0 5 3 7 5M5 23c3-2 5-2 8 0s5 2 8 0 5-2 6 0M8 27c2-1 4-1 6 0s4 1 6 0 4-1 5 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+  };
+
+  function speciesKind(record) {
+    const value = String(record.tipo || record.especie || '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    if (/delfin|orca|marsopa|tonina/.test(value)) return 'delfin';
+    if (/ballena|jorobada|yubarta|rorcual|cachalote|zifio/.test(value)) return 'ballena';
+    return 'cetaceo';
+  }
+
+  function createMarkerIcon(record) {
+    const kind = speciesKind(record);
+    return L.divIcon({
+      className: 'species-div-icon',
+      html: `<div class="sight-marker" style="--marker-color:${speciesColor(record.especie)}"><span class="sight-pulse"></span><span class="sight-pulse"></span><span class="sight-icon">${markerIcons[kind]}</span></div>`,
+      iconSize: [42, 42],
+      iconAnchor: [21, 21]
+    });
   }
 
   function text(value) {
@@ -152,16 +214,21 @@
     cluster.clearLayers();
     filtered.forEach(record => {
       const marker = L.marker([Number(record.latitud), Number(record.longitud)], {
-        icon: L.divIcon({ className: 'record-marker', html: '<span>●</span>', iconSize: [24, 24] }),
-        title: text(record.especie),
+        icon: createMarkerIcon(record),
+        title: `${text(record.especie)} · abrir ficha`,
         alt: text(record.especie),
         keyboard: true
       });
-      marker.getElement();
       marker.on('click', () => showRecord(record));
       marker.on('add', () => {
         const element = marker.getElement();
-        if (element) element.style.background = speciesColor(record.especie);
+        if (!element) return;
+        element.setAttribute('aria-label', `${text(record.especie)}. Abrir ficha del avistamiento`);
+        element.onkeydown = event => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          showRecord(record);
+        };
       });
       cluster.addLayer(marker);
     });
@@ -183,16 +250,18 @@
     legend.replaceChildren();
     if (!species.length) {
       const item = document.createElement('li');
-      item.innerHTML = '<span class="legend-dot"></span>Avistamiento de cetáceo';
+      item.innerHTML = `<span class="legend-species" style="--marker-color:${colors[1]}">${markerIcons.cetaceo}</span>Avistamiento de cetáceo`;
       legend.appendChild(item);
       return;
     }
     species.forEach(name => {
       const item = document.createElement('li');
-      const dot = document.createElement('span');
-      dot.className = 'legend-dot';
-      dot.style.background = speciesColor(name);
-      item.append(dot, document.createTextNode(name));
+      const symbol = document.createElement('span');
+      symbol.className = 'legend-species';
+      symbol.style.setProperty('--marker-color', speciesColor(name));
+      symbol.innerHTML = markerIcons[speciesKind({ especie: name })];
+      symbol.setAttribute('aria-hidden', 'true');
+      item.append(symbol, document.createTextNode(name));
       legend.appendChild(item);
     });
   }

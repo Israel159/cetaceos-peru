@@ -25,7 +25,8 @@ mi-repositorio/
     │   └── formularios.js             # Validación, ubicación y correo
     ├── data/
     │   ├── avistamientos.js           # Único archivo a editar para los registros
-    │   └── peru.geojson               # Mapa base local de Perú
+    │   ├── peru.geojson               # Contorno nacional local de Perú
+    │   └── peru-departamentos.geojson  # Límites y nombres departamentales locales
     ├── img/                           # Fotografías WebP, incluidas las 3 especies
     ├── videos/
     │   ├── hero-ballena.mp4           # Video H.264 de la portada y galería
@@ -50,7 +51,11 @@ Todas las rutas son relativas, por lo que el sitio funciona tanto en `usuario.gi
 
 Edite `assets/data/avistamientos.js` y agregue un objeto por registro dentro de `window.AVISTAMIENTOS = [...]`. El mismo archivo contiene un ejemplo comentado con los campos y su formato. No publique correos, teléfonos ni datos personales sin autorización.
 
-El mapa crea automáticamente los filtros, colores, leyenda, agrupaciones y fichas. Al filtrar, acerca la vista a los resultados. Cada registro puede incluir los campos opcionales `foto` y `credito`; la fotografía debe estar guardada en `assets/img/`. Si no hay registros, muestra un estado vacío en lugar de datos ficticios. El mapa base vectorial de Perú está incluido localmente y no depende de servidores de mapas externos.
+El mapa crea automáticamente los filtros, colores, leyenda, agrupaciones y fichas. Al filtrar, acerca la vista a los resultados. Cada registro puede incluir los campos opcionales `foto` y `credito`; la fotografía debe estar guardada en `assets/img/`. Si no hay registros, muestra un estado vacío en lugar de datos ficticios.
+
+El contorno nacional y los límites de los 24 departamentos y Callao están incluidos localmente: el mapa no depende de teselas ni servidores de mapas externos. Los nombres departamentales aparecen al alcanzar el nivel de zoom 6 para no saturar la vista general.
+
+Los iconos distinguen ballenas, delfines y otros cetáceos; el color identifica cada especie. La categoría se deduce del campo `especie`, pero puede forzarse con el campo opcional `tipo` usando `"ballena"`, `"delfin"` u `"otro"`. Esto es útil cuando el nombre de la especie es poco habitual o todavía no está identificado.
 
 Los tres contadores de la portada se calculan con este mismo archivo: total de registros, especies únicas y observadores únicos. Mientras no haya datos, permanecen como `—`; no se muestran cifras estimadas.
 
@@ -60,7 +65,7 @@ Los tres contadores de la portada se calculan con este mismo archivo: total de r
 - Olas, corrientes, entradas escalonadas y parallax editorial al desplazarse.
 - Explorador de tres especies con pestañas utilizables mediante ratón, tacto o teclado.
 - Galería horizontal con botones, teclado y visor ampliable de fotografías y video.
-- Mapa con agrupaciones, filtros, acercamiento animado y fichas con fotografía opcional.
+- Mapa con límites departamentales, nombres al acercar, iconos por categoría, colores por especie, agrupaciones, filtros y fichas abribles con ratón, tacto o teclado.
 - Contadores animados únicamente cuando existen datos públicos cargados.
 
 Las animaciones respetan la preferencia del sistema `prefers-reduced-motion`. El video de fondo no tiene sonido y puede pausarse.
@@ -96,4 +101,4 @@ Los recursos audiovisuales incluidos son reutilizables según sus páginas de or
 - `ballena-vertical.webp`: Carlos Reyes / Pexels, foto 16159288.
 - `cola-ballena.webp`: Unsplash, fotografía ZLDcgDaDvro.
 - Tipografías Marcellus y Lato: Google Fonts, licencias SIL Open Font License.
-- Mapa: Leaflet (BSD 2-Clause), Leaflet.markercluster (MIT) y geometría de Natural Earth (dominio público; atribución visible en el mapa).
+- Mapa: Leaflet (BSD 2-Clause) y Leaflet.markercluster (MIT). Contorno nacional de Natural Earth y límites departamentales de geoBoundaries, PER ADM1; ambas geometrías son de dominio público y la atribución permanece visible en el mapa.
