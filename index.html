@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#093753">
+  <meta name="description" content="Red Ciudadana de Avistamiento de Cetáceos del Perú: comparte tus observaciones y contribuye al conocimiento y la conservación marina.">
+  <title>Cada avistamiento cuenta | Red Ciudadana de Cetáceos del Perú</title>
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero-ballena.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/data/avistamientos.js" defer></script>
+  <script src="assets/js/experiencia.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Red Ciudadana de Cetáceos del Perú, inicio">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 33C14 32 8 24 6 13c8 1 14 5 18 11 4-6 10-10 18-11-2 11-8 19-18 20Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 33v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span><span class="brand-name">CETÁCEOS PERÚ</span><span class="brand-sub">Red ciudadana</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="sobre-la-red.html">Sobre la Red</a>
+        <a href="como-reportar.html">¿Cómo reportar?</a>
+        <a href="avistamientos.html">Avistamientos</a>
+        <a href="resultados-cientificos.html">Resultados</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn" href="reporta.html" aria-label="Reporta un avistamiento">Reporta un avistamiento</a>
+        <button class="menu-toggle" type="button" data-menu-open aria-expanded="false" aria-controls="menu-overlay" aria-label="Abrir menú"><span class="menu-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menu-overlay" hidden role="dialog" aria-modal="true" aria-label="Menú principal">
+    <div class="container menu-top"><span class="brand-name">EXPLORA LA RED</span><button class="menu-close" type="button" data-menu-close>Cerrar ✕</button></div>
+    <nav class="container menu-links" aria-label="Menú expandido">
+      <a href="index.html">Inicio <span>01</span></a><a href="sobre-la-red.html">Sobre la Red <span>02</span></a><a href="como-reportar.html">¿Cómo reportar? <span>03</span></a><a href="avistamientos.html">Explora los avistamientos <span>04</span></a><a href="resultados-cientificos.html">Resultados científicos <span>05</span></a><a href="reporta.html">Reporta un avistamiento <span>06</span></a>
+    </nav>
+    <div class="container menu-foot"><a href="mailto:cetaceospe@gmail.com">cetaceospe@gmail.com</a><a href="tel:+51933824566">(+51) 933 824 566</a></div>
+  </div>
+
+  <main id="contenido">
+    <section class="home-hero cinematic" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img class="hero-poster" src="assets/img/hero-ballena.webp" alt="" width="1200" height="627" fetchpriority="high">
+        <video class="hero-video" data-hero-video muted loop playsinline preload="metadata" poster="assets/img/hero-ballena.webp" tabindex="-1"><source src="assets/videos/hero-ballena.webm" type="video/webm"><source src="assets/videos/hero-ballena.mp4" type="video/mp4"></video>
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <svg class="hero-contours" data-contours viewBox="0 0 700 700" fill="none" aria-hidden="true"><path d="M-20 451c133-95 192-25 277-97s117-176 248-158 156 125 237 73M-30 500c144-101 215-31 298-102s120-167 238-151 166 111 249 68M-20 552c137-87 216-39 315-102s113-139 226-133 166 96 248 66M-10 603c137-74 221-39 326-92s115-119 220-112 156 77 232 62" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg class="hero-waves" viewBox="0 0 1440 180" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M-80 98C145 13 290 174 518 93S861 12 1090 96s369-25 486-62"/><path d="M-80 130c225-85 370 76 598 7s343-81 572 3 369-25 486-62"/></svg>
+      <div class="hero-copy">
+        <div class="eyebrow hero-enter">Ciencia ciudadana · Perú</div>
+        <h1 id="hero-title"><span class="title-line"><span>Cada</span></span><span class="title-line"><span>avistamiento</span></span><span class="title-line"><span>cuenta</span></span></h1>
+        <p class="lead hero-enter">Conectamos a personas, comunidades e investigadores para conocer mejor a los cetáceos en el Perú y contribuir a su protección.</p>
+        <p class="hero-detail hero-enter">Cada encuentro con una ballena, un delfín u otro cetáceo puede aportar información valiosa sobre dónde se encuentran, cuándo aparecen y cómo utilizan nuestras aguas.</p>
+        <div class="action-row hero-enter"><a class="btn btn-accent" href="avistamientos.html">Explora los avistamientos <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></a><a class="text-link" href="reporta.html">Registra un avistamiento →</a></div>
+        <div class="hero-bottom hero-enter"><div class="scroll-cue" aria-hidden="true"><span></span>Descubre la Red</div><button class="video-toggle" type="button" data-video-toggle aria-label="Pausar video de fondo"><span class="video-toggle-icon" aria-hidden="true">Ⅱ</span><span data-video-label>Pausar video</span></button></div>
+      </div>
+      <span class="hero-index">Pacífico peruano</span><span class="hero-credit">Video: Eclipse Chasers / Pexels</span>
+    </section>
+
+    <section class="stats-bar" aria-labelledby="cifras-title">
+      <div class="container"><h2 class="stats-intro" id="cifras-title">A la fecha · cifras de la Red</h2><div class="stats-grid">
+        <div class="stat"><span class="stat-value" data-counter="registros">—</span><span class="stat-label">Registros validados</span><span class="stat-note" data-counter-note>Dato en actualización</span></div>
+        <div class="stat"><span class="stat-value" data-counter="especies">—</span><span class="stat-label">Especies registradas</span><span class="stat-note" data-counter-note>Dato en actualización</span></div>
+        <div class="stat"><span class="stat-value" data-counter="participantes">—</span><span class="stat-label">Personas participantes</span><span class="stat-note" data-counter-note>Dato en actualización</span></div>
+        <div class="stat"><span class="stat-value">2025</span><span class="stat-label">Año de inicio</span><span class="stat-note">Una red que comienza</span></div>
+      </div></div>
+    </section>
+
+    <section class="section">
+      <div class="container split-feature">
+        <div class="feature-media image-reveal"><img src="assets/img/cola-ballena.webp" alt="Cola de una ballena emergiendo entre las olas" width="1400" height="933" loading="lazy"></div>
+        <div class="reveal"><div class="eyebrow">Conocimiento compartido</div><h2>¿Dónde se están avistando cetáceos en el Perú?</h2><p class="lead" style="margin-top:24px">Explora los registros recopilados por la Red y descubre qué especies han sido observadas, en qué lugares y durante qué periodos.</p><p style="margin-top:18px">Cada registro contribuye a ampliar nuestro conocimiento sobre la presencia de cetáceos en el mar peruano.</p><a class="text-link" href="avistamientos.html" style="margin-top:24px">Explorar el mapa →</a></div>
+      </div>
+    </section>
+
+    <section class="section species-section" id="especies" aria-labelledby="especies-title">
+      <svg class="section-currents" viewBox="0 0 900 500" fill="none" aria-hidden="true"><path d="M-40 330c170-140 272-41 394-139s177-158 325-99 181 97 289 9M-45 389c184-128 289-47 418-128s180-128 316-81 183 82 282 22M-35 447c184-101 299-54 433-109s184-98 311-60 170 64 267 34"/></svg>
+      <div class="container">
+        <div class="section-heading species-heading reveal"><div><div class="eyebrow">Guía visual de observación</div><h2 id="especies-title">Aprende a mirar el océano.</h2></div><p>Selecciona una especie y descubre los rasgos que puedes observar desde una distancia responsable. No necesitas identificarla con certeza para compartir tu registro.</p></div>
+        <div class="species-explorer reveal">
+          <div class="species-tabs" role="tablist" aria-label="Explorar especies">
+            <button type="button" role="tab" id="species-tab-0" aria-controls="species-panel" aria-selected="true" data-species-index="0"><span class="species-tab-number">01</span><span><strong>Ballena jorobada</strong><em>Megaptera novaeangliae</em></span><span class="species-tab-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" role="tab" id="species-tab-1" aria-controls="species-panel" aria-selected="false" tabindex="-1" data-species-index="1"><span class="species-tab-number">02</span><span><strong>Delfín común</strong><em>Delphinus delphis</em></span><span class="species-tab-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" role="tab" id="species-tab-2" aria-controls="species-panel" aria-selected="false" tabindex="-1" data-species-index="2"><span class="species-tab-number">03</span><span><strong>Cachalote</strong><em>Physeter macrocephalus</em></span><span class="species-tab-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <article class="species-panel" id="species-panel" role="tabpanel" aria-labelledby="species-tab-0" tabindex="0">
+            <div class="species-visual"><img id="species-image" src="assets/img/hero-ballena.webp" alt="Ballena jorobada saltando sobre el océano" width="1200" height="627"><span class="species-count" id="species-count">01 / 03</span><span class="species-photo-credit" id="species-credit">Eclipse Chasers / Pexels</span></div>
+            <div class="species-info"><p class="species-group" id="species-group">Ballenas barbadas</p><h3 id="species-name">Ballena jorobada</h3><p class="species-scientific" id="species-scientific">Megaptera novaeangliae</p><p id="species-description">Reconocible por sus aletas pectorales inusualmente largas y sus espectaculares saltos. Antes de una inmersión profunda suele elevar la cola.</p><dl class="species-facts"><div><dt>Observa</dt><dd id="species-observe">La forma de la cola, las aletas pectorales y la secuencia del salto.</dd></div><div><dt>Para tu reporte</dt><dd id="species-report">Anota si había crías, cuántos animales viste y qué estaban haciendo.</dd></div></dl><a class="text-link" href="reporta.html">Reportar lo que observé →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section surface-alt">
+      <div class="container editorial-grid">
+        <div class="section-title reveal"><div class="eyebrow">Tu observación puede contribuir</div><h2>¿Has visto una ballena o un delfín?</h2></div>
+        <div class="editorial-body reveal"><p class="lead">No necesitas ser especialista para contribuir. Si observaste un cetáceo durante una salida al mar, una faena de pesca, una actividad turística o desde la costa, puedes compartir tu registro con la Red.</p><p>Cuantos más registros confiables reunamos, mayores serán las oportunidades de comprender cómo y dónde se encuentran estas especies.</p><div class="action-row"><a class="btn" href="reporta.html">Registra tu avistamiento</a><a class="text-link" href="como-reportar.html">Conoce cómo participar →</a></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid" style="margin-bottom:64px"><div class="section-title"><div class="eyebrow">Una red colaborativa</div><h2>La conservación se construye en comunidad.</h2></div><div class="editorial-body"><p class="lead">La Red Ciudadana de Avistamiento de Cetáceos del Perú conecta a personas y organizaciones que comparten un interés: conocer mejor a los cetáceos y contribuir a su conservación.</p><p>Pescadores, operadores turísticos, investigadores, estudiantes y todos los ciudadanos pueden aportar conocimientos y observaciones que complementen los esfuerzos de investigación y monitoreo.</p><a class="text-link" href="sobre-la-red.html" style="margin-top:24px">Conoce la Red →</a></div></div>
+        <div class="mosaic"><figure class="mosaic-main image-reveal"><img src="assets/img/paracas-barco.webp" alt="Embarcación de pesca frente a la costa rocosa de Paracas" width="1600" height="1067" loading="lazy"></figure><div class="mosaic-secondary"><figure class="image-reveal"><img src="assets/img/delfines.webp" alt="Dos delfines nadando en la superficie del mar" width="1400" height="1867" loading="lazy"></figure><p class="image-caption">El mar peruano, un espacio de encuentro, trabajo y conocimiento.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="galeria" aria-labelledby="galeria-title">
+      <div class="container">
+        <div class="section-heading gallery-heading reveal"><div><div class="eyebrow">Archivo visual</div><h2 id="galeria-title">El Pacífico, más cerca.</h2></div><div class="gallery-controls" aria-label="Controles de la galería"><button type="button" data-gallery-scroll="prev" aria-label="Ver imágenes anteriores">←</button><button type="button" data-gallery-scroll="next" aria-label="Ver más imágenes">→</button></div></div>
+        <p class="gallery-intro reveal">Una selección visual provisional inspirada en el trabajo de observación. Selecciona cualquier pieza para verla en detalle.</p>
+      </div>
+      <div class="gallery-track reveal" data-gallery-track tabindex="0" aria-label="Galería de fotografías y video">
+        <figure class="gallery-card gallery-card-wide"><button type="button" data-gallery-item data-type="video" data-src="assets/videos/hero-ballena.mp4" data-webm="assets/videos/hero-ballena.webm" data-poster="assets/img/hero-ballena.webp" data-caption="Ballena jorobada · Video de Eclipse Chasers / Pexels" aria-label="Reproducir video de una ballena jorobada"><img src="assets/img/hero-ballena.webp" alt="Ballena jorobada saltando" width="1200" height="627" loading="lazy"><span class="gallery-badge">▶ Video · 16 s</span><span class="gallery-open" aria-hidden="true">Ver pieza ↗</span></button><figcaption>01 · El instante del salto</figcaption></figure>
+        <figure class="gallery-card"><button type="button" data-gallery-item data-type="image" data-src="assets/img/cola-ballena.webp" data-alt="Cola de una ballena sobre el mar" data-caption="Cola de ballena · Unsplash" aria-label="Ampliar fotografía de una cola de ballena"><img src="assets/img/cola-ballena.webp" alt="Cola de una ballena sobre el mar" width="1400" height="933" loading="lazy"><span class="gallery-open" aria-hidden="true">Ampliar ↗</span></button><figcaption>02 · Antes de la inmersión</figcaption></figure>
+        <figure class="gallery-card"><button type="button" data-gallery-item data-type="image" data-src="assets/img/delfines.webp" data-alt="Delfines desplazándose en la superficie" data-caption="Delfines en la superficie · Jonas Von Werne / Pexels" aria-label="Ampliar fotografía de delfines"><img src="assets/img/delfines.webp" alt="Delfines desplazándose en la superficie" width="1400" height="1867" loading="lazy"><span class="gallery-open" aria-hidden="true">Ampliar ↗</span></button><figcaption>03 · Movimiento colectivo</figcaption></figure>
+        <figure class="gallery-card gallery-card-wide"><button type="button" data-gallery-item data-type="image" data-src="assets/img/paracas-barco.webp" data-alt="Embarcación frente a la costa de Paracas" data-caption="Costa de Paracas · Leandra FF / Pexels" aria-label="Ampliar fotografía de la costa de Paracas"><img src="assets/img/paracas-barco.webp" alt="Embarcación frente a la costa de Paracas" width="1600" height="1067" loading="lazy"><span class="gallery-open" aria-hidden="true">Ampliar ↗</span></button><figcaption>04 · Observar desde el mar</figcaption></figure>
+        <figure class="gallery-card"><button type="button" data-gallery-item data-type="image" data-src="assets/img/paracas-atardecer.webp" data-alt="Embarcaciones al atardecer en Paracas" data-caption="Atardecer en Paracas · Leandra FF / Pexels" aria-label="Ampliar fotografía del atardecer en Paracas"><img src="assets/img/paracas-atardecer.webp" alt="Embarcaciones al atardecer en Paracas" width="1200" height="1600" loading="lazy"><span class="gallery-open" aria-hidden="true">Ampliar ↗</span></button><figcaption>05 · Una jornada que termina</figcaption></figure>
+      </div>
+      <div class="container"><p class="gallery-hint">Desliza para recorrer la galería · Usa las flechas o las teclas de dirección.</p></div>
+    </section>
+
+    <section class="cta-final">
+      <svg class="cta-lines" viewBox="0 0 700 500" fill="none" aria-hidden="true"><path d="M-10 350c120-120 180-70 265-146S382 72 510 98s134 81 220 5M-20 402c130-115 205-74 292-143S396 132 518 154s143 69 226 17M-10 455c139-102 211-65 307-126s123-104 236-85 133 55 221 23" stroke="currentColor" stroke-width="1.2"/></svg>
+      <div class="container"><div><div class="eyebrow">Suma tu mirada</div><h2>El próximo registro puede ser el tuyo.</h2><p>Comparte tu observación y ayúdanos a seguir descubriendo la diversidad de cetáceos del Perú.</p></div><a class="btn btn-light" href="reporta.html">Registra un avistamiento →</a></div>
+    </section>
+  </main>
+
+  <dialog class="media-dialog" id="media-dialog" aria-labelledby="media-caption">
+    <div class="media-dialog-top"><span>Archivo visual de la Red</span><button type="button" class="media-close" aria-label="Cerrar galería">Cerrar ×</button></div>
+    <div class="media-stage"><img id="media-image" alt="" hidden><video id="media-video" controls playsinline hidden></video></div>
+    <div class="media-dialog-bottom"><p id="media-caption">Imagen de la galería</p><div class="media-nav"><button type="button" data-media-nav="prev" aria-label="Pieza anterior">←</button><button type="button" data-media-nav="next" aria-label="Pieza siguiente">→</button></div></div>
+  </dialog>
+
+  <footer class="site-footer"><div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 33C14 32 8 24 6 13c8 1 14 5 18 11 4-6 10-10 18-11-2 11-8 19-18 20Z" stroke="currentColor" stroke-width="2.2"/><path d="M24 33v8" stroke="currentColor" stroke-width="2.2"/></svg><span><span class="brand-name">CETÁCEOS PERÚ</span><span class="brand-sub">Red ciudadana</span></span></a><p>Ciencia ciudadana para el registro y monitoreo de cetáceos en el Perú.</p><div class="social-links"><a href="https://www.linkedin.com/company/cetaceospe/">LinkedIn</a><a href="https://www.instagram.com/cetaceos.pe/">Instagram</a><a href="https://www.tiktok.com/@cetaceos.pe">TikTok</a><a href="https://www.facebook.com/cetaceos.pe">Facebook</a><a href="https://www.youtube.com/@cetaceospe">YouTube</a></div></div>
+      <div><h2 class="footer-title">Participa</h2><ul class="footer-links"><li><a href="reporta.html">Reporta un avistamiento</a></li><li><a href="https://forms.gle/ZaxdtpxhbopadgDF6">Únete por WhatsApp</a></li></ul></div>
+      <div><h2 class="footer-title">Explora</h2><ul class="footer-links"><li><a href="sobre-la-red.html">Sobre la Red</a></li><li><a href="como-reportar.html">¿Cómo reportar?</a></li><li><a href="avistamientos.html">Avistamientos</a></li><li><a href="resultados-cientificos.html#solicitar-acceso">Acceso a la base de datos</a></li></ul></div>
+      <div class="footer-contact"><h2 class="footer-title">Contacto</h2><p>Sarai Cortez-Casamayor</p><ul class="footer-links"><li><a href="mailto:cetaceospe@gmail.com">cetaceospe@gmail.com</a></li><li><a href="tel:+51933824566">(+51) 933 824 566</a></li></ul></div>
+    </div>
+    <div class="allies"><span class="ally-label">Organiza</span><span class="ally-name">Proyecto Cetáceos Perú</span><span class="ally-label">Con el apoyo de</span><span class="ally-name">Smithsonian Institution</span></div>
+    <div class="footer-bottom"><span>© <span data-year></span> Red Ciudadana de Avistamiento de Cetáceos del Perú</span><a href="resultados-cientificos.html#como-citar">Cómo citar la base de datos</a></div>
+  </div></footer>
+</body>
+</html>
