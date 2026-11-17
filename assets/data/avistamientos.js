@@ -16,4 +16,17 @@
  *   credito: "Autor o fuente de la fotografía" // Opcional, recomendado
  * }
  */
-window.AVISTAMIENTOS = [];
+window.AVISTAMIENTOS = [
+{
+ id: "RCAC-0001",
+especie: "Ballena jorobada",
+nombreCientifico: "Megaptera novaeangliae",
+fecha: "2026-08-15",
+observador: "Nombre autorizado para publicación",
+region: "Piura",
+latitud: -4.20,
+longitud: -81.10,
+foto: "assets/img/nombre-de-la-foto.webp", // Opcional
+credito: "Autor o fuente de la fotografía" // Opcional, recomendado
+}
+];
