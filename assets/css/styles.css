@@ -61,7 +61,7 @@ li+li{margin-top:.55rem}
 .ocean-section{background:var(--brand);color:var(--p-paper)}
 .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;color:var(--brand);font-size:.74rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
 .eyebrow::before{content:'';width:32px;height:1px;background:currentColor}
-.ocean-section .eyebrow,.page-hero .eyebrow,.home-hero .eyebrow{color:var(--p-paper)}
+.ocean-section .eyebrow,.page-hero .eyebrow,.home-hero .eyebrow,.cta-final .eyebrow{color:var(--p-paper)}
 .lead{font-size:clamp(1.12rem,1.8vw,1.35rem);line-height:1.6}
 .muted{color:var(--text-muted)}
 .small{font-size:.86rem}
