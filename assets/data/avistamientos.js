@@ -30,5 +30,31 @@ latitud: -4.20,
 longitud: -81.10,
 foto: "assets/img/especie-cachalote.webp", // Opcional
 credito: "Marco Begazo" // Opcional, recomendado
+ },
+{
+id: "RCAC-0002",
+especie: "delfin",
+tipo: "delfin", // Opcional: "ballena", "delfin" u "otro"
+nombreCientifico: "Megaptera novaeangliae",
+fecha: "2026-08-15",
+observador: "Nombre autorizado para publicación",
+region: "A",
+latitud: -13.20,
+longitud: -91.10,
+foto: "assets/img/especie-cachalote.webp", // Opcional
+credito: "Marco Begazo" // Opcional, recomendado
+ },
+{
+id: "RCAC-0001",
+especie: "otras especies",
+tipo: "otro", // Opcional: "ballena", "delfin" u "otro"
+nombreCientifico: "Megaptera novaeangliae",
+fecha: "2026-08-15",
+observador: "Nombre autorizado para publicación",
+region: "B",
+latitud: -12.20,
+longitud: -92.10,
+foto: "assets/img/especie-cachalote.webp", // Opcional
+credito: "Marco Begazo" // Opcional, recomendado
  }
 ];
