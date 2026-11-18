@@ -75,6 +75,25 @@ li+li{margin-top:.55rem}
 .brand-mark{width:42px;height:42px}
 .brand-name{display:block;font-size:.92rem;font-weight:900;letter-spacing:.08em;line-height:1.1}
 .brand-sub{display:block;margin-top:5px;font-size:.61rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 52px;
+  max-width: 210px;
+  object-fit: contain;
+}
+
+.footer-brand .brand-logo {
+  height: 64px;
+  max-width: 230px;
+}
+
+@media (max-width: 600px) {
+  .brand-logo {
+    height: 46px;
+    max-width: 170px;
+  }
+}
 .main-nav{display:flex;align-items:center;justify-content:center;gap:22px;margin-left:auto}
 .main-nav a{position:relative;padding-block:12px;font-size:.76rem;font-weight:700;white-space:nowrap}
 .main-nav a::after{content:'';position:absolute;right:0;bottom:6px;left:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform .22s ease-out}
