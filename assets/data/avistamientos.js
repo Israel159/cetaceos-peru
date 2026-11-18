@@ -28,7 +28,7 @@ observador: "Nombre autorizado para publicación",
 region: "Piura",
 latitud: -4.20,
 longitud: -81.10,
-foto: "assets/img/especie-cachaloteo.webp", // Opcional
+foto: "assets/img/especie-cachalote.webp", // Opcional
 credito: "Marco Begazo" // Opcional, recomendado
  }
 ];
