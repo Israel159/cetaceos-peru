@@ -52,8 +52,8 @@
     })
     .then(geojson => {
       L.geoJSON(geojson, {
-        style: { color: '#093753', weight: 1.6, fillColor: '#f2eadf', fillOpacity: 1 }
-      }).addTo(map);
+        style: { color: 'transparent', weight: 0, fillColor: '#f2eadf', fillOpacity: 1 }
+      }).addTo(map).bringToBack();
     })
     .catch(() => {
       const notice = document.getElementById('map-empty');
@@ -91,7 +91,7 @@
           layer.on('mouseover', () => layer.setStyle({ color: '#093753', weight: 1.5, fillColor: '#e8e0d4' }));
           layer.on('mouseout', () => layer.setStyle({ color: '#6f898d', weight: 0.75, fillColor: '#f2eadf' }));
         }
-      }).addTo(map);
+      }).addTo(map).bringToFront();
       updateDepartmentLabels();
     })
     .catch(() => {
