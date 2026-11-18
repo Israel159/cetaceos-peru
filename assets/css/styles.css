@@ -715,3 +715,8 @@ li+li{margin-top:.55rem}
   .gallery-track{scroll-snap-type:none}
   .record-marker::after,.sight-pulse{display:none}
 }
+
+/* Encabezados interiores: contenido ordenado verticalmente */
+.section-heading:not(.species-heading):not(.gallery-heading) {
+  display: block;
+}
